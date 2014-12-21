@@ -3,10 +3,10 @@ package imap
 import (
 	"bufio"
 	"bytes"
-	"errors"
 	"fmt"
 	"io"
 	"log"
+	"errors"
 	"strconv"
 )
 
@@ -25,7 +25,6 @@ func recoverError(err *error) {
 }
 
 type sexp interface{}
-
 // One of:
 //   string
 //   []sexp
@@ -93,7 +92,7 @@ func (p *parser) readNumber() (num int, outErr error) {
 		c, err := p.ReadByte()
 		check(err)
 		if c >= '0' && c <= '9' {
-			num = num*10 + int(c-'0')
+			num = num * 10 + int(c - '0')
 		} else {
 			check(p.UnreadByte())
 			return num, nil
@@ -193,7 +192,7 @@ func (p *parser) readBracketed() (text string, outErr error) {
 	check(p.expect("["))
 	text, err := p.ReadString(']')
 	check(err)
-	text = text[0 : len(text)-1]
+	text = text[0:len(text)-1]
 
 	return text, nil
 }

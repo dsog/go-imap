@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 	"flag"
 	"fmt"
-	"github.com/martine/go-imap/imap"
+	"github.com/khussein/go-imap"
 	"io"
 	"log"
 	"os"
